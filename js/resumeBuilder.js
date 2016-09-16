@@ -1,4 +1,6 @@
 
+//Model
+
 var bio = {
 	name: "Jason Simmons",
 	role: "Web Developer",
@@ -74,37 +76,22 @@ var projects = {
     					"gitHub":""
     				}
 	],
-
 	display: function(){
-		$('#projects').append(HTMLprojectStart);
-		
-    for (i = 0; i < this.project.length; i++){	
-			 var title   = HTMLprojectTitle.replace('%data%', this.project[i].name),
-			 date        = HTMLprojectDates.replace('%data%', this.project[i].date),
-			 description = HTMLprojectDescription.replace('%data%', this.project[i].description),
-			 image       = HTMLprojectImage.replace('%data%', this.project[i].image),
-			 link        = this.project[i].link,
-			 gitHub      = this.project[i].gitHub;
+          		$('#projects').append(HTMLprojectStart);
+          		
+              for (i = 0; i < this.project.length; i++){	
+          			 var title   = HTMLprojectTitle.replace('%data%', this.project[i].name),
+          			 date        = HTMLprojectDates.replace('%data%', this.project[i].date),
+          			 description = HTMLprojectDescription.replace('%data%', this.project[i].description),
+          			 image       = HTMLprojectImage.replace('%data%', this.project[i].image),
+          			 link        = this.project[i].link,
+          			 gitHub      = this.project[i].gitHub;
 
-			 $('.project-entry').append(title, date, description, image, link, gitHub);
-		}
-	}
+          			 $('.project-entry').append(title, date, description, image, link, gitHub);
+          	}
+	       }
 }
 
-var formattedName 	= HTMLheaderName.replace("%data%", "Json Simmons"),
-formattedRole 		  = HTMLheaderRole.replace("%data%", "Frontend Web Developer"),
-formattedSkills 	  = HTMLskills.replace("%data%", bio.skills.join(" ")),
-
-formatedStart 		  = HTMLworkStart,
-formattedEmployer 	= HTMLworkEmployer,
-formattedTitle 		  = HTMLworkTitle,
-formatedDates 		  = HTMLworkDates,
-formattedLocation	  = HTMLworkLocation,
-formattedDescription= HTMLworkDescription;
-
-
-displayResume();
-$('#mapDiv').append(googleMap)
 
 function displayResume(){
 	$("#main").append(internationalizeButton);
@@ -131,23 +118,14 @@ function displayResume(){
         + HTMLschoolLocation.replace('%data%',education.schools[school].location)
     );
   }
-  
-
-
-  // var HTMLschoolStart = '<div class="education-entry"></div>';
-// var HTMLschoolName = '<a href="#">%data%';
-// var HTMLschoolDegree = ' -- %data%</a>';
-// var HTMLschoolDates = '<div class="date-text">%data%</div>';
-// var HTMLschoolLocation = '<div class="location-text">%data%</div>';
-// var HTMLschoolMajor = '<em><br>Major: %data%</em>';
 
 	projects.display();
 }
 
 function inName(name){
-	var intName 	= name.split(" ");
-	var newFirst 	= intName[0];
-	var newLast		= intName[1];
+	var intName = name.split(" ");
+	   newFirst = intName[0],
+	   newLast	= intName[1],
 
 	firstLetter = newFirst[0].toUpperCase();
 	newFirst = firstLetter + newFirst.slice(1).toLowerCase(); 
@@ -156,6 +134,19 @@ function inName(name){
 }
 
 
+//View
+var formattedName   = HTMLheaderName.replace("%data%", "Json Simmons"),
+formattedRole       = HTMLheaderRole.replace("%data%", "Frontend Web Developer"),
+formattedSkills     = HTMLskills.replace("%data%", bio.skills.join(" ")),
 
+formatedStart       = HTMLworkStart,
+formattedEmployer   = HTMLworkEmployer,
+formattedTitle      = HTMLworkTitle,
+formatedDates       = HTMLworkDates,
+formattedLocation   = HTMLworkLocation,
+formattedDescription= HTMLworkDescription;
+
+displayResume();
+$('#mapDiv').append(googleMap)
 
 
